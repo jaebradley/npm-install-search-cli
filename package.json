@@ -2,7 +2,7 @@
   "name": "npm-install-search-cli",
   "version": "0.0.0-development",
   "description": "CLI that combines searching and installing npm packages",
-  "main": "index.js",
+  "main": "./build/executables/nis.js",
   "bin": {
     "nis": "./build/executables/nis.js"
   },

@@ -1,11 +1,11 @@
 import { spawn } from 'child_process';
 
-const install = ({ name, version, options }) => (
+const install = ({ packages, options }) => (
   spawn(
     'npm',
     [
       'install',
-      `${name}@${version}`,
+      ...packages.map(({ name, version }) => `${name}@${version}`),
       ...options,
     ],
     { stdio: 'inherit' },
