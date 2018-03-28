@@ -11,7 +11,7 @@
     "codecov": "codecov",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "compile": "babel -d build/ src/ --ignore node_modules,*.test.js",
-    "compile:prod": "babel env=PROD -d build/ src/ --ignore node_modules,*.test.js",
+    "compile:prod": "BABEL_ENV=production babel -d build/ src/ --ignore node_modules,*.test.js",
     "lint": "eslint --ext .js .",
     "test": "jest --coverage --passWithNoTests",
     "prepublishOnly": "npm run compile",
