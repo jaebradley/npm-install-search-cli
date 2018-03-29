@@ -1,5 +1,7 @@
 # npm-install-search-cli
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/npm-install-search-cli.svg)](https://greenkeeper.io/)
+
 ![alt-text](https://media.giphy.com/media/1akH8ZffIwX1XcIwWt/giphy.gif)
 
 ## Installation
