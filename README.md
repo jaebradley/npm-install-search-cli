@@ -30,7 +30,7 @@ yas [...options]
 
 If you use `npm` for package management, you can execute `nis` with some of [the current `npm install` `options`](https://docs.npmjs.com/cli/install) like `--save` or `--save-dev` or `--save-prod`. <sup>[1](#npm-options-footnote)</sup>
 
-If you use `yarn` for package management, you can execute `yas` with some of [the current `yarn add` `options`](https://yarnpkg.com/en/docs/cli/add) like `--dev` or `-E`.
+If you use `yarn` for package management, you can execute `yas` with all of [the current `yarn add` `options`](https://yarnpkg.com/en/docs/cli/add) like `--dev` or `-E`.
 
 You'll be prompted to search packages in the `npm` registy using an autocomplete interface.
 
