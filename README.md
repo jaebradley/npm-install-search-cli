@@ -1,6 +1,8 @@
 # npm-install-search-cli
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/npm-install-search-cli.svg)](https://greenkeeper.io/)
+[![npm](https://img.shields.io/npm/v/npm-install-search-cli.svg)](https://www.npmjs.com/package/npm-install-search-cli)
+[![npm](https://img.shields.io/npm/dt/npm-install-search-cli.svg)](https://www.npmjs.com/package/npm-install-search-cli)
 
 ![alt-text](https://media.giphy.com/media/1akH8ZffIwX1XcIwWt/giphy.gif)
 
@@ -8,23 +10,35 @@
 
 ```bash
 npm install npm-install-search-cli -g
+// or
+yarn add npm-install-search-cli -g
 ```
 
 ## Usage
+
+### `npm install` + `search`
 
 ```bash
 nis [...options]
 ```
 
-You can just execute `nis` with some of [the current `npm` `options`](https://docs.npmjs.com/cli/install) like `--save` or `--save-dev` or `--save-prod`. <sup>[1](#npm-options-footnote)</sup>
+### `yarn add` + `search`
 
-You'll be prompted to search `npm` packages using an autocomplete interface.
+```bash
+yas [...options]
+```
+
+If you use `npm` for package management, you can execute `nis` with some of [the current `npm install` `options`](https://docs.npmjs.com/cli/install) like `--save` or `--save-dev` or `--save-prod`. <sup>[1](#npm-options-footnote)</sup>
+
+If you use `yarn` for package management, you can execute `yas` with all of [the current `yarn add` `options`](https://yarnpkg.com/en/docs/cli/add) like `--dev` or `-E`.
+
+You'll be prompted to search packages in the `npm` registy using an autocomplete interface.
 
 ![alt-text](https://imgur.com/hSRpcfT.png)
 
 (Under the hood, the CLI is making HTTP requests to [the `npm` registry's `search` API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md#get-v1search)).
 
-Once you make a selection, it should install like good 'ol `npm install`!
+Once you make a selection, it should install like good 'ol `npm install` or `yarn add`!
 
 ![alt-text](https://imgur.com/ijG0lBQ.png)
 

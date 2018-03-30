@@ -1,4 +1,4 @@
-const buildInstallOptions = ({
+const buildNpmInstallOptions = ({
   save,
   saveProd,
   saveDev,
@@ -46,4 +46,39 @@ const buildInstallOptions = ({
   return options;
 };
 
-export default buildInstallOptions;
+const buildYarnAddOptions = ({
+  dev,
+  peer,
+  optional,
+  exact,
+  tilde,
+}) => {
+  const options = [];
+
+  if (dev) {
+    options.push('-D');
+  }
+
+  if (peer) {
+    options.push('-P');
+  }
+
+  if (optional) {
+    options.push('-O');
+  }
+
+  if (exact) {
+    options.push('-E');
+  }
+
+  if (tilde) {
+    options.push('-T');
+  }
+
+  return options;
+};
+
+export {
+  buildNpmInstallOptions,
+  buildYarnAddOptions,
+};
