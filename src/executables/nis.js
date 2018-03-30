@@ -14,6 +14,7 @@ program.version(pkg.version)
   .option('-O, --save-optional', 'Save optional')
   .option('-E, --save-exact', 'Save exact version')
   .option('-B, --save-bundle', 'Save bundle')
+  .option('-g, --global', 'Install globally')
   .option('--no-save', 'Do not save')
   .option('--dry-run', 'Dry run')
   .parse(process.argv);
