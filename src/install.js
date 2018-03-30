@@ -1,10 +1,15 @@
 import { spawn } from 'child_process';
 
-const install = ({ packages, options }) => (
+const install = ({
+  packages,
+  options,
+  packageManager,
+  command,
+}) => (
   spawn(
-    'npm',
+    packageManager,
     [
-      'install',
+      command,
       ...packages.map(({ name, version }) => `${name}@${version}`),
       ...options,
     ],
@@ -12,4 +17,21 @@ const install = ({ packages, options }) => (
   )
 );
 
-export default install;
+const npmInstall = ({ packages, options }) => install({
+  packages,
+  options,
+  packageManager: 'npm',
+  command: 'install',
+});
+
+const yarnAdd = ({ packages, options }) => install({
+  packages,
+  options,
+  packageManager: 'yarn',
+  command: 'add',
+});
+
+export {
+  npmInstall,
+  yarnAdd,
+};

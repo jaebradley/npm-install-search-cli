@@ -1,10 +1,11 @@
 {
   "name": "npm-install-search-cli",
   "version": "0.0.0-development",
-  "description": "CLI that combines searching and installing npm packages",
-  "main": "./build/executables/nis.js",
+  "description": "CLI that combines searching and installing packages from the npm registry",
+  "main": "./build/index.js",
   "bin": {
-    "nis": "./build/executables/nis.js"
+    "nis": "./build/executables/nis.js",
+    "yas": "./build/executables/yas.js"
   },
   "global": true,
   "scripts": {

@@ -1,9 +1,7 @@
 import PackageSearchPrompter from './PackageSearchPrompter';
 import selectAnotherPackage from './selectAnotherPackage';
-import install from './install';
-import buildInstallOptions from './buildInstallOptions';
 
-const execute = async (inputs) => {
+const execute = async ({ options, install, installOptionsBuilder }) => {
   try {
     const packages = [];
     const packageSearchPrompter = new PackageSearchPrompter();
@@ -18,7 +16,7 @@ const execute = async (inputs) => {
       searchAgain = searchAgainResult.searchAgain; // eslint-disable-line prefer-destructuring
     }
 
-    install({ packages, options: buildInstallOptions(inputs) });
+    install({ packages, options: installOptionsBuilder(options) });
   } catch (error) {
     console.error('😞  Rut ro, an error occurred');
     console.error(error);
