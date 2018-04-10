@@ -7,7 +7,7 @@ const buildNpmInstallOptions = ({
   saveBundle,
   noSave,
   dryRun,
-  installGlobally,
+  global,
 }) => {
   const options = [];
 
@@ -39,7 +39,7 @@ const buildNpmInstallOptions = ({
     options.push('--dry-run');
   }
 
-  if (installGlobally) {
+  if (global) {
     options.push('--global');
   }
 
