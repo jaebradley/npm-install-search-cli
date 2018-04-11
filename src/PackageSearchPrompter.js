@@ -37,6 +37,7 @@ class PackageSearchPrompter {
               version,
               description,
               author: publisher.username,
+              score: result.score.final,
             });
 
             formattedPackageDetails.push(formattedDetails);
