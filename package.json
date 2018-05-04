@@ -45,7 +45,8 @@
     "chalk": "^2.3.2",
     "commander": "^2.15.1",
     "inquirer": "^5.2.0",
-    "inquirer-autocomplete-prompt": "^0.12.2"
+    "inquirer-autocomplete-prompt": "^0.12.2",
+    "npms-client": "^1.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.42",
