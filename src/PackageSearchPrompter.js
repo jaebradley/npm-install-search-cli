@@ -60,9 +60,6 @@ class PackageSearchPrompter {
       },
     ]);
 
-    console.log(this.packageDetailsMapping);
-    console.log('npm package', npmPackage);
-
     return this.packageDetailsMapping[npmPackage];
   }
 }
