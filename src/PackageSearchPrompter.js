@@ -20,7 +20,7 @@ class PackageSearchPrompter {
     this.packageDetailsMapping = {};
     // ensures that done searching option is selectable
     const formattedPackageDetails = [DONE_SEARCHING];
-    packageDetailsMapping[DONE_SEARCHING] = DONE_SEARCHING;
+    this.packageDetailsMapping[DONE_SEARCHING] = DONE_SEARCHING;
 
     packageResults.forEach((result) => {
       const {
@@ -58,7 +58,9 @@ class PackageSearchPrompter {
         message: 'Search for npm package',
         source: async (answersSoFar, searchTerm) => {
           if (!searchTerm) {
-            return [];
+            // ensures that done searching option is selectable
+            this.packageDetailsMapping[DONE_SEARCHING] = DONE_SEARCHING;
+            return [DONE_SEARCHING];
           }
 
           return this.getPackageDetails(searchTerm);
