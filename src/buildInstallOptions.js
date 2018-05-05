@@ -2,6 +2,7 @@ const buildNpmInstallOptions = ({
   save,
   saveProd,
   saveDev,
+  savePeer,
   saveOptional,
   saveExact,
   saveBundle,
@@ -17,6 +18,10 @@ const buildNpmInstallOptions = ({
 
   if (saveDev) {
     options.push('-D');
+  }
+
+  if (savePeer) {
+    options.push('--save-peer');
   }
 
   if (saveOptional) {

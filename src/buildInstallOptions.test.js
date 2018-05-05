@@ -6,6 +6,7 @@ describe('buildNpmInstallOptions', () => {
       save: true,
       saveProd: true,
       saveDev: true,
+      savePeer: true,
       saveOptional: true,
       saveExact: true,
       saveBundle: true,
@@ -17,6 +18,7 @@ describe('buildNpmInstallOptions', () => {
     const expected = [
       '-P',
       '-D',
+      '--save-peer',
       '-O',
       '-E',
       '-B',
