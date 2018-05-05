@@ -3,6 +3,7 @@ import InquirerAutocompletePrompt from 'inquirer-autocomplete-prompt';
 import { getSuggestions } from 'npms-client';
 
 import formatPackageDetails from './formatPackageDetails';
+import { DONE_SEARCHING } from './constants';
 
 inquirer.registerPrompt('autocomplete', InquirerAutocompletePrompt);
 
@@ -15,9 +16,11 @@ class PackageSearchPrompter {
   async getPackageDetails(searchTerm) {
     const packageResults = await getSuggestions({ terms: [searchTerm] });
 
-    const formattedPackageDetails = [];
     const packageDetailsMapping = {};
     this.packageDetailsMapping = {};
+    // ensures that done searching option is selectable
+    const formattedPackageDetails = [DONE_SEARCHING];
+    packageDetailsMapping[DONE_SEARCHING] = DONE_SEARCHING;
 
     packageResults.forEach((result) => {
       const {
@@ -27,12 +30,15 @@ class PackageSearchPrompter {
         publisher,
       } = result.package;
 
+      const author = publisher ? publisher.username : '';
+      const score = result && result.score ? result.score.final : null;
+
       const formattedDetails = formatPackageDetails({
         name,
         version,
         description,
-        author: publisher.username,
-        score: result.score.final,
+        author,
+        score,
       });
 
       formattedPackageDetails.push(formattedDetails);
