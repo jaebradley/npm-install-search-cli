@@ -4,8 +4,7 @@ import program from 'commander';
 
 import pkg from '../../package.json';
 import execute from '../';
-import { npmInstall } from '../install';
-import { buildNpmInstallOptions } from '../buildInstallOptions';
+import { INSTALLER } from '../constants';
 
 program.version(pkg.version)
   .description('CLI that combines searching and installing packages form the npm registry for npm')
@@ -21,6 +20,4 @@ program.version(pkg.version)
   .option('--dry-run', 'Dry run')
   .parse(process.argv);
 
-
-execute({ options: program, install: npmInstall, installOptionsBuilder: buildNpmInstallOptions });
-
+execute({ options: program, installer: INSTALLER.NPM });
