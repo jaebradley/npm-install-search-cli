@@ -1,7 +1,8 @@
 {
   "name": "npm-install-search-cli",
-  "version": "0.0.0-development",
   "description": "CLI that combines searching and installing packages from the npm registry",
+  "version": "0.0.0-development",
+  "author": "jae.b.bradley@gmail.com",
   "main": "./build/index.js",
   "bin": {
     "nis": "./build/executables/nis.js",
@@ -11,12 +12,12 @@
   "scripts": {
     "codecov": "codecov",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "compile": "babel -d build/ src/ --ignore node_modules,*.test.js",
-    "compile:prod": "BABEL_ENV=production babel -d build/ src/ --ignore node_modules,*.test.js",
+    "build": "babel src/ -d build/ --delete-dir-on-start",
+    "build:prod": "BABEL_ENV=production npm run build",
     "lint": "eslint --ext .js .",
-    "test": "jest --coverage --passWithNoTests",
-    "prepublishOnly": "npm run compile",
-    "semantic-commit": "commit",
+    "test": "jest",
+    "prepublishOnly": "npm run build:prod",
+    "gc": "commit",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },
@@ -37,8 +38,14 @@
   },
   "homepage": "https://github.com/jaebradley/npm-install-search-cli#readme",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverage": true
   },
+  "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.46",
     "axios": "^0.18.0",
