@@ -56,7 +56,9 @@ class PackageSearchPrompter {
         // eslint-disable-next-line consistent-return
         source: async (_, searchTerm) => {
           this.searchTerm = searchTerm;
-          const suggestions = searchTerm ? await getSuggestions({ terms: [searchTerm], size: 10 }) : [];
+          const suggestions = searchTerm
+            ? await getSuggestions({ terms: [searchTerm], size: 10 })
+            : [];
 
           // first search will often return last
           // so in order for memoization to work correctly, need to make sure
