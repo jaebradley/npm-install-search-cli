@@ -1,4 +1,4 @@
-import { spawn } from 'child_process';
+import { spawn } from 'child-process-promise';
 
 const install = ({
   packages,
