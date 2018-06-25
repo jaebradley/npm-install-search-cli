@@ -11,5 +11,9 @@
     "production": {
       "presets": ["minify"]
     }
-  }
+  },
+  "ignore": [
+    "node_modules",
+    "*.test.js"
+  ]
 }
