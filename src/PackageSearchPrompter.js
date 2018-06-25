@@ -11,18 +11,14 @@ class PackageSearchPrompter {
   constructor() {
     // goddamn hacky memoization
     this.packageDetailsMapping = {};
+    this.searchTerm = null;
   }
 
-  async getPackageDetails(searchTerm) {
-    const packageResults = await getSuggestions({ terms: [searchTerm] });
-
-    const packageDetailsMapping = {};
+  getPackageDetails(results) {
+    const choices = [];
     this.packageDetailsMapping = {};
-    // ensures that done searching option is selectable
-    const formattedPackageDetails = [DONE_SEARCHING];
-    this.packageDetailsMapping[DONE_SEARCHING] = DONE_SEARCHING;
 
-    packageResults.forEach((result) => {
+    results.forEach((result) => {
       const {
         name,
         version,
@@ -30,7 +26,7 @@ class PackageSearchPrompter {
         publisher,
       } = result.package;
 
-      const author = publisher ? publisher.username : '';
+      const author = publisher && publisher.username ? publisher.username : '';
       const score = result && result.score ? result.score.final : null;
 
       const formattedDetails = formatPackageDetails({
@@ -41,13 +37,14 @@ class PackageSearchPrompter {
         score,
       });
 
-      formattedPackageDetails.push(formattedDetails);
-
-      packageDetailsMapping[formattedDetails] = { name, version };
+      this.packageDetailsMapping[formattedDetails] = { name, version };
+      choices.push(formattedDetails);
     });
 
-    this.packageDetailsMapping = packageDetailsMapping;
-    return formattedPackageDetails;
+    choices.push(DONE_SEARCHING);
+    this.packageDetailsMapping[DONE_SEARCHING] = DONE_SEARCHING;
+
+    return choices;
   }
 
   async prompt() {
@@ -56,14 +53,18 @@ class PackageSearchPrompter {
         type: 'autocomplete',
         name: 'npmPackage',
         message: 'Search for npm package',
-        source: async (answersSoFar, searchTerm) => {
-          if (!searchTerm) {
-            // ensures that done searching option is selectable
-            this.packageDetailsMapping[DONE_SEARCHING] = DONE_SEARCHING;
-            return [DONE_SEARCHING];
-          }
+        // eslint-disable-next-line consistent-return
+        source: async (_, searchTerm) => {
+          this.searchTerm = searchTerm;
+          const suggestions = searchTerm ? await getSuggestions({ terms: [searchTerm], size: 10 }) : [];
 
-          return this.getPackageDetails(searchTerm);
+          // first search will often return last
+          // so in order for memoization to work correctly, need to make sure
+          // only update package details when latest search term is equal to to searchTerm
+          // variable in the Promise
+          if (this.searchTerm === searchTerm) {
+            return Promise.resolve(this.getPackageDetails(suggestions));
+          }
         },
       },
     ]);
