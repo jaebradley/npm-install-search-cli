@@ -52,7 +52,7 @@
     "chalk": "^2.3.2",
     "child-process-promise": "^2.2.1",
     "commander": "^2.15.1",
-    "inquirer": "^6.0.0",
+    "inquirer": "^7.0.0",
     "inquirer-autocomplete-prompt": "^1.0.0",
     "npms-client": "^1.0.3"
   },
