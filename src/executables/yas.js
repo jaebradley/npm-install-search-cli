@@ -3,7 +3,7 @@
 import program from 'commander';
 
 import pkg from '../../package.json';
-import execute from '../';
+import execute from '..';
 import { yarnAdd } from '../install';
 import { buildYarnAddOptions } from '../buildInstallOptions';
 
