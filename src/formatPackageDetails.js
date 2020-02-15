@@ -5,25 +5,25 @@ const formatScore = (score) => {
 
   if (roundedScore === 100) {
     return '💯';
-  } else if (roundedScore > 90) {
+  } if (roundedScore > 90) {
     return `🥇  ${chalk.greenBright.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 80) {
+  } if (roundedScore > 80) {
     return `🥈  ${chalk.green.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 70) {
+  } if (roundedScore > 70) {
     return `🥉  ${chalk.magentaBright.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 60) {
+  } if (roundedScore > 60) {
     return `😅  ${chalk.magenta.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 50) {
+  } if (roundedScore > 50) {
     return `🤔  ${chalk.blue.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 40) {
+  } if (roundedScore > 40) {
     return `😯  ${chalk.blueBright.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 30) {
+  } if (roundedScore > 30) {
     return `🤞  ${chalk.yellow.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 20) {
+  } if (roundedScore > 20) {
     return `😳  ${chalk.yellowBright.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 10) {
+  } if (roundedScore > 10) {
     return `🙏 ${chalk.red.bold(`(${roundedScore}/100)`)}`;
-  } else if (roundedScore > 0) {
+  } if (roundedScore > 0) {
     return `🥔  ${chalk.redBright.bold(`(${roundedScore}/100)`)}`;
   }
 

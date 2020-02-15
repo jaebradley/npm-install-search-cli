@@ -3,7 +3,7 @@
 import program from 'commander';
 
 import pkg from '../../package.json';
-import execute from '../';
+import execute from '..';
 import { npmInstall } from '../install';
 import { buildNpmInstallOptions } from '../buildInstallOptions';
 
@@ -23,4 +23,3 @@ program.version(pkg.version)
 
 
 execute({ options: program, install: npmInstall, installOptionsBuilder: buildNpmInstallOptions });
-
