@@ -44,7 +44,7 @@
     "chalk": "^4.0.0",
     "child-process-promise": "^2.2.1",
     "commander": "^5.1.0",
-    "inquirer": "^7.0.6",
+    "inquirer": "^6.5.2",
     "inquirer-autocomplete-prompt": "^1.0.2",
     "npms-client": "^1.0.4"
   },
@@ -70,7 +70,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^4.0.2",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
     "semantic-release": "^17.0.3",
