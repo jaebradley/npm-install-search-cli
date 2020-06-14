@@ -43,8 +43,8 @@
     "axios": "^0.19.2",
     "chalk": "^4.0.0",
     "child-process-promise": "^2.2.1",
-    "commander": "^5.0.0",
-    "inquirer": "^7.1.0",
+    "commander": "^5.1.0",
+    "inquirer": "^7.0.6",
     "inquirer-autocomplete-prompt": "^1.0.2",
     "npms-client": "^1.0.4"
   },
