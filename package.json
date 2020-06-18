@@ -39,7 +39,7 @@
   "homepage": "https://github.com/jaebradley/npm-install-search-cli#readme",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.10.0",
+    "@babel/runtime": "^7.10.1",
     "axios": "^0.19.2",
     "chalk": "^4.0.0",
     "child-process-promise": "^2.2.1",
