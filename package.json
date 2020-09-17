@@ -45,7 +45,7 @@
     "child-process-promise": "^2.2.1",
     "commander": "^5.1.0",
     "inquirer": "^6.5.2",
-    "inquirer-autocomplete-prompt": "^1.0.2",
+    "inquirer-autocomplete-prompt": "^1.1.0",
     "npms-client": "^1.0.4"
   },
   "devDependencies": {
