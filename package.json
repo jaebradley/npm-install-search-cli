@@ -44,7 +44,7 @@
     "chalk": "^4.1.0",
     "child-process-promise": "^2.2.1",
     "commander": "^5.1.0",
-    "inquirer": "^6.5.2",
+    "inquirer": "^7.0.5",
     "inquirer-autocomplete-prompt": "^1.0.2",
     "npms-client": "^1.0.4"
   },
